@@ -24,7 +24,7 @@ export default async function Pacientes() {
                             <Link href={`/pacientes/${paciente.id}`} className="text-2xl block">
                                 {paciente.nombre}
                             </Link>
-                            <p>{paciente.fechaNacimiento}</p>
+                            <p>{paciente.fechaNacimiento.toISOString().split('T')[0]}</p>
                             <p>{paciente.plantaId}</p>
                         </div>
 

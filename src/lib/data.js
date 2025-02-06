@@ -43,10 +43,10 @@ async function obtenerMedicinas() {
 
 
 async function obtenerMedicina(id) {
-    const asignatura = await prisma.asignatura.findUnique({
+    const medicina = await prisma.medicina.findUnique({
         where: { id: +id }
     })
-    return asignatura
+    return medicina
 }
 
 
