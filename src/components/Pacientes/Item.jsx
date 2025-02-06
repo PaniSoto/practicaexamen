@@ -12,7 +12,6 @@ export default async function Paciente({ id }) {
             <p> {paciente.nombre} </p>
             <p> {paciente.fechaNacimiento.toISOString().split('T')[0]}</p>
             <p> {paciente.plantaId} </p>
-            
         </div>
     );
 }
