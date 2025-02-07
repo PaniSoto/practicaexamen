@@ -3,7 +3,6 @@ import { notFound } from "next/navigation";
 
 export default async function Planta({ id }) {
     const planta = await obtenerPlanta(id)
-    // console.log(planta);
 
     if (!planta) notFound()
 

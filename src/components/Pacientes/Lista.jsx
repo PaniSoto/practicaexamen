@@ -1,5 +1,4 @@
 import Modal from "@/components/Modal";
-// import { obtenerAsignaturas, obtenerEstudiantes } from "@/lib/data";
 import { obtenerPacientes, obtenerPlantas } from "@/lib/data";
 import Link from "next/link";
 import PacienteInsertar from "./Insertar";
@@ -9,14 +8,14 @@ import PacienteEliminar from "./Eliminar";
 export default async function Pacientes() {
     const pacientes = await obtenerPacientes()
     const plantas = await obtenerPlantas()
-    //console.log(asignaturas);
+
     return (
         <div>
 
             <Modal openElement={<p className="inline border-2 border-black">Insertar Pacientes</p>}>
-            <PacienteInsertar plantas={plantas} />
+                <PacienteInsertar plantas={plantas} />
             </Modal>
-           
+
             {
                 pacientes.map(paciente =>
                     <div key={paciente.id} className="p-4 mb-4 bg-slate-200 rounded-lg">
@@ -29,13 +28,13 @@ export default async function Pacientes() {
                         </div>
 
                         <Modal openElement={<p className="inline border-2 border-black">Modificar</p>}>
-                        <PacienteModificar paciente={paciente} plantas={plantas} />
-                       </Modal>
-                       
+                            <PacienteModificar paciente={paciente} plantas={plantas} />
+                        </Modal>
+
                         <Modal openElement={<p className="inline border-2 border-black">Eliminar</p>}>
-                        <PacienteEliminar paciente={paciente} />
-                       </Modal>
-                        
+                            <PacienteEliminar paciente={paciente} />
+                        </Modal>
+
                         <hr />
                     </div>
                 )

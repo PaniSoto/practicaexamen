@@ -9,14 +9,14 @@ import MedicinaEliminar from "./Eliminar";
 export default async function Medicinas() {
     const medicinas = await obtenerMedicinas()
     const pacientes = await obtenerPacientes()
-    //console.log(asignaturas);
+
     return (
         <div>
 
             <Modal openElement={<p className="inline border-2 border-black">Insertar Medicinas</p>}>
-            <MedicinaInsertar pacientes={pacientes} />
+                <MedicinaInsertar pacientes={pacientes} />
             </Modal>
-           
+
             {
                 medicinas.map(medicina =>
                     <div key={medicina.id} className="p-4 mb-4 bg-slate-200 rounded-lg">
@@ -28,13 +28,13 @@ export default async function Medicinas() {
                         </div>
 
                         <Modal openElement={<p className="inline border-2 border-black">Modificar</p>}>
-                        <MedicinaModificar medicina={medicina} pacientes={pacientes} />
-                       </Modal>
-                        
+                            <MedicinaModificar medicina={medicina} pacientes={pacientes} />
+                        </Modal>
+
                         <Modal openElement={<p className="inline border-2 border-black">Eliminar</p>}>
-                        <MedicinaEliminar medicina={medicina} />
-                       </Modal>
-                    
+                            <MedicinaEliminar medicina={medicina} />
+                        </Modal>
+
                         <hr />
                     </div>
                 )
