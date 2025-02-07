@@ -18,7 +18,7 @@ function PacienteInsertar() {
             <input name="nombre" placeholder="Nombre" />
             <input type="date" name="fechaNacimiento" />
             <input name="plantaId" placeholder="PlantaId" />
-            {/* {
+            {
                 medicinas.map(medicina =>
                     <label key={medicina.id}>
                         <input
@@ -30,7 +30,7 @@ function PacienteInsertar() {
 
                     </label>
                 )
-            } */}
+            }
 
             <button
                 // disabled={pending}
