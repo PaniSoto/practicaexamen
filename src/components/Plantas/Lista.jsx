@@ -1,9 +1,6 @@
-// import Modal from "@/components/Modal";
+import Modal from "@/components/Modal";
 // import { obtenerAsignaturas, obtenerEstudiantes } from "@/lib/data";
 import { obtenerPlantas } from "@/lib/data";
-// import AsignaturaEliminar from "./Eliminar";
-// import AsignaturaModificar from "./Modificar";
-// import AsignaturaInsertar from "./Insertar";
 import Link from "next/link";
 import PlantaInsertar from "./Insertar";
 import PlantaModificar from "./Modificar";
@@ -16,11 +13,10 @@ export default async function Plantas() {
     return (
         <div>
 
-            {/* <Modal openElement={<p className="inline border-2 border-black">Insertar asignatura</p>}>
-                
-            </Modal> */}
+            <Modal openElement={<p className="inline border-2 border-black">Insertar Plantas</p>}>
             <PlantaInsertar />
-
+            </Modal>
+           
             {
                 plantas.map(planta =>
                     <div key={planta.id} className="p-4 mb-4 bg-slate-200 rounded-lg">
@@ -31,14 +27,14 @@ export default async function Plantas() {
                             <p>{planta.via}</p>
                         </div>
 
-                        {/* <Modal openElement={<p className="inline border-2 border-black">Modificar</p>}>
-                        </Modal> */}
+                        <Modal openElement={<p className="inline border-2 border-black">Modificar</p>}>
+                       
+                        </Modal>
                         <PlantaModificar planta={planta}/>
 
+                        <Modal openElement={<p className="inline border-2 border-black">Eliminar</p>}>
                         <PlantaEliminar planta={planta} />
-
-                        {/* <Modal openElement={<p className="inline border-2 border-black">Eliminar</p>}>
-                        </Modal> */}
+                        </Modal>
 
                         <hr />
                     </div>

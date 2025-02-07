@@ -1,8 +1,6 @@
-
+import Modal from "@/components/Modal";
 // import { obtenerAsignaturas, obtenerEstudiantes } from "@/lib/data";
 import { obtenerMedicinas } from "@/lib/data";
-// import AsignaturaEliminar from "./Eliminar";
-// import AsignaturaModificar from "./Modificar";
 import Link from "next/link";
 import MedicinaInsertar from "./Insertar";
 import MedicinaModificar from "./Modificar";
@@ -15,7 +13,9 @@ export default async function Medicinas() {
     return (
         <div>
 
-                <MedicinaInsertar />
+            <Modal openElement={<p className="inline border-2 border-black">Insertar Medicinas</p>}>
+            <MedicinaInsertar />
+            </Modal>
            
             {
                 medicinas.map(medicina =>
@@ -27,10 +27,14 @@ export default async function Medicinas() {
                             <p>{medicina.via}</p>
                         </div>
 
-                            <MedicinaModificar medicina={medicina}/>
+                        <Modal openElement={<p className="inline border-2 border-black">Modificar</p>}>
+                        <MedicinaModificar medicina={medicina} />
+                       </Modal>
                         
-                            <MedicinaEliminar medicina={medicina} />
-                       
+                        <Modal openElement={<p className="inline border-2 border-black">Eliminar</p>}>
+                        <MedicinaEliminar medicina={medicina} />
+                       </Modal>
+                    
                         <hr />
                     </div>
                 )
