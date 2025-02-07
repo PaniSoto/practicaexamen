@@ -1,7 +1,7 @@
 import { insertarMedicina } from "@/lib/actions";
 // import { useEffect, useActionState, useId } from "react";
 
-function MedicinaInsertar() {
+function MedicinaInsertar({pacientes}) {
     //{ medicinas }arriba esto
 
     // const formId = useId();
@@ -17,19 +17,19 @@ function MedicinaInsertar() {
         <form action={insertarMedicina}>
             <input name="nombre" placeholder="Nombre" />
             <input name="via" placeholder="Via/a" />
-            {/* {
-                medicinas.map(medicina =>
-                    <label key={medicina.id}>
+            {
+                pacientes.map(paciente =>
+                    <label key={paciente.id}>
                         <input
                             type="checkbox"
-                            name={`medicina${medicina.id}`}
-                            value={medicina.nombre} />
+                            name={`paciente${paciente.id}`}
+                            value={paciente.nombre} />
 
-                        {medicina.nombre}
+                        {paciente.nombre}
 
                     </label>
                 )
-            } */}
+            }
 
             <button
                 // disabled={pending}

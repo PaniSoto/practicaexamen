@@ -8,9 +8,9 @@ function PlantaModificar({ planta }) {
             <input name='nombre' defaultValue={planta.nombre} />
             <input name='jefePlanta' defaultValue={planta.jefePlanta} />
             
-            {/* <input name='num_horas' defaultValue={medicina.num_horas} /> */}
+            {/* <input name='num_horas' defaultValue={medicina.num_horas} />
 
-            {/* {
+            {
                 estudiantes.map(estudiante =>
                     <label key={estudiante.id}>
                         <input

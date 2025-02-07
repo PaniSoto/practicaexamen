@@ -1,7 +1,8 @@
 import { insertarPaciente } from "@/lib/actions";
 // import { useEffect, useActionState, useId } from "react";
 
-function PacienteInsertar() {
+
+function PacienteInsertar({plantas}) {
     //{ medicinas }arriba esto
 
     // const formId = useId();
@@ -19,14 +20,14 @@ function PacienteInsertar() {
             <input type="date" name="fechaNacimiento" />
             <input name="plantaId" placeholder="PlantaId" />
             {
-                medicinas.map(medicina =>
-                    <label key={medicina.id}>
+                plantas.map(planta =>
+                    <label key={planta.id}>
                         <input
                             type="checkbox"
-                            name={`medicina${medicina.id}`}
-                            value={medicina.nombre} />
+                            name={`planta${planta.id}`}
+                            value={planta.nombre} />
 
-                        {medicina.nombre}
+                        {planta.nombre}
 
                     </label>
                 )

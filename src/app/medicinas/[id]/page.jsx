@@ -17,7 +17,6 @@ async function PaginaMedicina({ params, searchParams }) {
             </Suspense>
         </div>
     )
-
 }
 
 export default PaginaMedicina;

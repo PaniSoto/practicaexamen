@@ -1,6 +1,6 @@
 import { modificarMedicina } from "@/lib/actions";
 
-function MedicinaModificar({ medicina }) {
+function MedicinaModificar({ medicina, pacientes }) {
 
     return (
         <form action={modificarMedicina}>
@@ -8,22 +8,21 @@ function MedicinaModificar({ medicina }) {
             <input name='nombre' defaultValue={medicina.nombre} />
             <input name='via' defaultValue={medicina.via} />
             
-            {/* <input name='num_horas' defaultValue={medicina.num_horas} /> */}
+            <input name='nombre' defaultValue={medicina.nombre} />
 
-            {/* {
-                estudiantes.map(estudiante =>
-                    <label key={estudiante.id}>
+            {
+                pacientes.map(paciente =>
+                    <label key={paciente.id}>
                         <input
                             type="checkbox"
-                            name={`estudiante${estudiante.id}`}
-                            value={estudiante.nombre}
-                            defaultChecked={IDs.includes(estudiante.id)} />
+                            name={`paciente${paciente.id}`}
+                            value={paciente.nombre}/>
 
-                        {estudiante.nombre}
+                        {paciente.nombre}
 
                     </label>
                 )
-            } */}
+            }
 
             <button className="border-2 border-black">Modificar</button>
         </form>
