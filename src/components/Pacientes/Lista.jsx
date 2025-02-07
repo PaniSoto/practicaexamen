@@ -5,6 +5,9 @@ import { obtenerPacientes } from "@/lib/data";
 // import AsignaturaModificar from "./Modificar";
 // import AsignaturaInsertar from "./Insertar";
 import Link from "next/link";
+import PacienteInsertar from "./Insertar";
+import PacienteModificar from "./Modificar";
+import PacienteEliminar from "./Eliminar";
 
 export default async function Pacientes() {
     const pacientes = await obtenerPacientes()
@@ -13,10 +16,8 @@ export default async function Pacientes() {
     return (
         <div>
 
-            {/* <Modal openElement={<p className="inline border-2 border-black">Insertar asignatura</p>}>
-                <AsignaturaInsertar estudiantes={estudiantes} />
-            </Modal> */}
-
+            <PacienteInsertar />
+           
             {
                 pacientes.map(paciente =>
                     <div key={paciente.id} className="p-4 mb-4 bg-slate-200 rounded-lg">
@@ -28,13 +29,11 @@ export default async function Pacientes() {
                             <p>{paciente.plantaId}</p>
                         </div>
 
-                        {/* <Modal openElement={<p className="inline border-2 border-black">Modificar</p>}>
-                            <AsignaturaModificar asignatura={asignatura} estudiantes={estudiantes}/>
-                        </Modal>
-
-                        <Modal openElement={<p className="inline border-2 border-black">Eliminar</p>}>
-                            <AsignaturaEliminar asignatura={asignatura} />
-                        </Modal> */}
+                      
+                            <PacienteModificar paciente={paciente}/>
+                      
+                            <PacienteEliminar paciente={paciente} />
+                     
 
                         <hr />
                     </div>

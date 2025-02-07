@@ -5,6 +5,9 @@ import { obtenerPlantas } from "@/lib/data";
 // import AsignaturaModificar from "./Modificar";
 // import AsignaturaInsertar from "./Insertar";
 import Link from "next/link";
+import PlantaInsertar from "./Insertar";
+import PlantaModificar from "./Modificar";
+import PlantaEliminar from "./Eliminar";
 
 export default async function Plantas() {
     const plantas = await obtenerPlantas()
@@ -14,9 +17,9 @@ export default async function Plantas() {
         <div>
 
             {/* <Modal openElement={<p className="inline border-2 border-black">Insertar asignatura</p>}>
-                <AsignaturaInsertar estudiantes={estudiantes} />
+                
             </Modal> */}
-
+            <PlantaInsertar />
 
             {
                 plantas.map(planta =>
@@ -25,15 +28,16 @@ export default async function Plantas() {
                             <Link href={`/plantas/${planta.id}`} className="text-2xl block">
                                 {planta.nombre}
                             </Link>
-                            <p>{planta.jefePlanta}</p>
+                            <p>{planta.via}</p>
                         </div>
 
                         {/* <Modal openElement={<p className="inline border-2 border-black">Modificar</p>}>
-                            <AsignaturaModificar asignatura={asignatura} estudiantes={estudiantes}/>
-                        </Modal>
+                        </Modal> */}
+                        <PlantaModificar planta={planta}/>
 
-                        <Modal openElement={<p className="inline border-2 border-black">Eliminar</p>}>
-                            <AsignaturaEliminar asignatura={asignatura} />
+                        <PlantaEliminar planta={planta} />
+
+                        {/* <Modal openElement={<p className="inline border-2 border-black">Eliminar</p>}>
                         </Modal> */}
 
                         <hr />

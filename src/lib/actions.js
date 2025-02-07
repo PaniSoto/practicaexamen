@@ -3,16 +3,13 @@ import { revalidatePath } from 'next/cache'
 
 import prisma from '@/lib/prisma'
 
-
-
 //  ------------------------ MEDICINAS ------------------------
-
 
 export async function insertarMedicina(formData) {
     const nombre = formData.get('nombre')
     const via = formData.get('via')
 
-    await prisma.grupo.create({
+    await prisma.medicina.create({
         data: {
             nombre: nombre,
             via: via
@@ -20,10 +17,7 @@ export async function insertarMedicina(formData) {
     })
 
     revalidatePath('/medicinas')
-
 }
-
-
 
 export async function modificarMedicina(formData) {
     const id = Number(formData.get('id'))
@@ -43,8 +37,6 @@ export async function modificarMedicina(formData) {
     revalidatePath('/medicinas')
 }
 
-
-
 export async function eliminarMedicina(formData) {
     const id = Number(formData.get('id'))
 
@@ -57,20 +49,18 @@ export async function eliminarMedicina(formData) {
     revalidatePath('/medicinas')
 }
 
-
 //  ------------------------ PACIENTES ------------------------
-
 
 export async function insertarPaciente(formData) {
     const nombre = formData.get('nombre')
-    const fecha_nacimiento = new Date(formData.get('fecha_nacimiento'))
+    const fechaNacimiento = new Date(formData.get('fechaNacimiento'))
     const plantaId = formData.get('plantaId')
 
     await prisma.paciente.create({
         data: {
             nombre: nombre,
-            fecha_nacimiento: fecha_nacimiento,
-            plantaId: plantaId
+            fechaNacimiento: fechaNacimiento,
+            plantaId: +plantaId
         }
     })
 
@@ -80,7 +70,7 @@ export async function insertarPaciente(formData) {
 export async function modificarPaciente(formData) {
     const id = Number(formData.get('id'))
     const nombre = formData.get('nombre')
-    const fecha_nacimiento = new Date(formData.get('fecha_nacimiento'))
+    const fechaNacimiento = new Date(formData.get('fechaNacimiento'))
     const plantaId = formData.get('plantaId')
 
     await prisma.paciente.update({
@@ -89,15 +79,13 @@ export async function modificarPaciente(formData) {
         },
         data: {
             nombre: nombre,
-            fecha_nacimiento: fecha_nacimiento,
-            plantaId: plantaId
+            fechaNacimiento: fechaNacimiento,
+            plantaId: +plantaId
         }
     })
 
     revalidatePath('/pacientes')
 }
-
-
 
 export async function eliminarPaciente(formData) {
     const id = Number(formData.get('id'))
@@ -109,11 +97,9 @@ export async function eliminarPaciente(formData) {
     })
 
     revalidatePath('/pacientes')
-
 }
 
 // ------------------------------- ASIGNATURAS -----------------------
-
 
 export async function insertarPlanta(formData) {
     const nombre = formData.get('nombre')
@@ -128,8 +114,6 @@ export async function insertarPlanta(formData) {
 
     revalidatePath('/plantas')
 }
-
-
 
 export async function modificarPlanta(formData) {
     const id = Number(formData.get('id'))
@@ -149,8 +133,6 @@ export async function modificarPlanta(formData) {
     revalidatePath('/plantas')
 }
 
-
-
 export async function eliminarPlanta(formData) {
     const id = Number(formData.get('id'))
 
@@ -162,4 +144,3 @@ export async function eliminarPlanta(formData) {
 
     revalidatePath('/plantas')
 }
-
